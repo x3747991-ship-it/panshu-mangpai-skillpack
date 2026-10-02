@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>盘叔盲派 · 蒸馏复核报告 + 融合规划</title>
+<style>
+:root{
+  --ink:#2d2118;--ink2:#5c4f3c;--paper:#f7f2e6;--card:#fffdf8;
+  --gold:#b8860b;--gold2:#8a6d1a;--line:#d9cdb0;
+  --red:#b03a2e;--green:#3f6d45;--blue:#2e5568;--orange:#c0392b;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Songti SC","STSong","SimSun",serif;color:var(--ink);background:linear-gradient(160deg,#ece2c8,#f7f1e3 45%,#efe6d0);line-height:1.8;padding-bottom:80px}
+.wrap{max-width:1060px;margin:0 auto;padding:0 28px}
+.cover{text-align:center;padding:64px 20px 48px}
+.cover::after{content:"";display:block;width:80px;height:3px;background:var(--gold);margin:24px auto 0}
+.kicker{letter-spacing:.5em;font-size:13px;color:var(--gold2);margin-bottom:16px}
+h1{font-size:38px;font-weight:900;color:var(--ink)}
+.sub{font-size:16px;color:var(--ink2);margin-top:12px}
+.meta{margin-top:20px;font-size:13px;color:var(--ink2);letter-spacing:.08em}
+section{margin-top:56px}
+.sec-tag{font-size:12px;letter-spacing:.3em;color:var(--gold2);margin-bottom:4px}
+h2{font-size:26px;font-weight:800;color:var(--ink);border-bottom:2px solid var(--gold);padding-bottom:10px;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+h2 .num{background:var(--gold);color:#fff;font-size:13px;width:32px;height:32px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+h3{font-size:18px;font-weight:800;color:var(--ink);margin:22px 0 10px;padding-left:10px;border-left:4px solid var(--gold2)}
+p{margin:8px 0;color:var(--ink2)}
+strong{color:var(--ink)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;box-shadow:0 2px 8px rgba(58,46,31,.05);margin:14px 0}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13px}
+th{background:var(--gold);color:#fff;padding:9px 10px;text-align:left;font-weight:800}
+td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:nth-child(even) td{background:#faf6ea}
+.tag{display:inline-block;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:700;border:1px solid transparent;white-space:nowrap}
+.tag-ok{background:#e8f5e9;color:var(--green);border-color:#a5d6a7}
+.tag-warn{background:#fff3e0;color:#e65100;border-color:#ffcc80}
+.tag-err{background:#fdeceb;color:var(--red);border-color:#e8b4af}
+.tag-info{background:#e3f2fd;color:#1565c0;border-color:#90caf9}
+.tip{border-left:4px solid var(--gold);background:#fbf6e8;padding:12px 16px;border-radius:0 10px 10px 0;margin:12px 0}
+.warn{border-left:4px solid var(--red);background:#fdf0ee;padding:12px 16px;border-radius:0 10px 10px 0;margin:12px 0}
+.good{border-left:4px solid var(--green);background:#eef7ef;padding:12px 16px;border-radius:0 10px 10px 0;margin:12px 0}
+.flow{counter-reset:step;list-style:none;margin:14px 0}
+.flow li{counter-increment:step;position:relative;padding:5px 0 12px 48px;color:var(--ink2)}
+.flow li::before{content:counter(step);position:absolute;left:0;top:0;width:32px;height:32px;border-radius:50%;background:var(--card);border:2px solid var(--gold);color:var(--gold);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:14px}
+pre{background:#2e2a24;color:#f0e8d8;border-radius:10px;padding:16px 18px;font-size:12.5px;line-height:1.65;overflow-x:auto;font-family:Consolas,monospace;margin:12px 0;white-space:pre-wrap}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:20px 0}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center}
+.stat b{display:block;font-size:28px;color:var(--gold);font-weight:900}
+.stat span{font-size:12px;color:var(--ink2)}
+.footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--line);text-align:center;font-size:12px;color:var(--ink2)}
+@media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}h1{font-size:28px}}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="kicker">盘叔盲派 · 蒸馏工程复核</div>
+  <h1>蒸馏成果复核报告<br>+ 融合规划</h1>
+  <div class="sub">12 张任务卡 · 逐包核验 · 遗漏清单 · 融合路线图</div>
+  <div class="meta">复核日期 2026-10-02 · 基于全部 15 个交付包逐一解压核验</div>
+</div>
+
+<div class="wrap">
+
+<!-- 一、复核总览 -->
+<section>
+  <div class="sec-tag">Overview</div>
+  <h2><span class="num">壹</span>复核总览：一句话结论</h2>
+  <div class="card" style="text-align:center;padding:26px">
+    <p style="font-size:17px;font-weight:700;color:var(--ink)">
+      12 张任务卡全部有交付，主干已立起来；但有 <strong style="color:var(--red)">2 本段派核心书被遗漏未蒸</strong>、<strong style="color:var(--red)">命名规范未统一</strong>、<strong style="color:var(--red)">总控缺失</strong>，融合前需先补齐。
+    </p>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>12/12</b><span>任务卡有交付</span></div>
+    <div class="stat"><b>~20</b><span>实际产出技能数</span></div>
+    <div class="stat"><b>2</b><span>遗漏需补蒸的书</span></div>
+    <div class="stat"><b>1</b><span>待建总控</span></div>
+  </div>
+</section>
+
+<!-- 二、逐包核验结果 -->
+<section>
+  <div class="sec-tag">Audit</div>
+  <h2><span class="num">贰</span>12 包逐包核验结果</h2>
+
+  <table>
+    <tr><th style="width:10%">任务</th><th style="width:22%">产出技能</th><th style="width:12%">达标</th><th style="width:56%">核验结论</th></tr>
+    <tr><td><span class="tag tag-info">A1</span></td><td><code>ps-tiwei-zuogong</code><br>+ 盲派段氏包 3 册</td><td><span class="tag tag-ok">达标</span></td><td>351 条规则、619 候选、OCR 142K 字。段氏理象学 3 册版（主册+基础表+格局实战）内容最全。<strong>问题：3 个版本并存需去重；盲派段氏包用中文名未守 ps- 前缀。</strong></td></tr>
+    <tr><td><span class="tag tag-info">A2</span></td><td><code>ps-minglizhenbao</code></td><td><span class="tag tag-ok">达标</span></td><td>43KB，五张前置卡 + 六步断法 + 元规则层定位清晰。61,935 有效字、50 期全书覆盖。</td></tr>
+    <tr><td><span class="tag tag-info">A3</span></td><td><code>ps-duan-shizhan</code></td><td><span class="tag tag-ok">达标</span></td><td>96 规则 + 161 命例 + 41 误区。五域（婚姻/疾病/车祸/应期/六亲）规则表五字段齐全，references/ 分文件规范。</td></tr>
+    <tr><td><span class="tag tag-info">A4</span></td><td><code>ps-duan-zhiye</code></td><td><span class="tag tag-ok">达标</span></td><td>271 规则 + 48 命例 + 57 误区 + 16 格局。references/ 完整，五字段+模型路径+置信度齐全，5 类职业体系化。</td></tr>
+    <tr><td><span class="tag tag-info">A5</span></td><td><code>ps-duan-xiangfa</code></td><td><span class="tag tag-warn">达标但需修</span></td><td>规则覆盖完整（天干象/地支象/组合象/借象/过河拆桥）。<strong>问题：SKILL.md 内引用「候选/命例.md」但该文件不在技能包内，属断链需修复。</strong></td></tr>
+    <tr><td><span class="tag tag-info">B1</span></td><td><code>ps-zhenjue-duanju</code></td><td><span class="tag tag-ok">达标</span></td><td>270+ 规则。口诀断法覆盖全书 60 章，病药取用/寿元星/从气从势完整，冲突记录 12 条。</td></tr>
+    <tr><td><span class="tag tag-info">B2</span></td><td><code>ps-xiazhongqi-*</code> 7 册<br>+ 盲派段氏包 9 册</td><td><span class="tag tag-ok">达标</span></td><td>夏仲奇铁口断法 7 册完整，补漏轮新增「断事补法」「断健康疾病」共 9 册。<strong>问题：3 个版本并存（ps-前缀 7 册 / 中文名 7 册 / 中文名 9 册），需选定最终版。</strong></td></tr>
+    <tr><td><span class="tag tag-info">B3</span></td><td><code>ps-anli-ku</code></td><td><span class="tag tag-ok">达标</span></td><td>156 准入规则 + 267 结构化命例 + OCR 三源交叉。891 行 SKILL.md + 测试题，诚信声明与方法论风险披露完整。</td></tr>
+    <tr><td><span class="tag tag-info">C1</span></td><td><code>ps-zhenbao</code></td><td><span class="tag tag-warn">达标但需优化</span></td><td>1010 条通过规则 + 230 命例。<strong>问题：1393 行/130KB 全塞在 SKILL.md 单文件里，运行时全量加载效率低，建议拆 references/。</strong></td></tr>
+    <tr><td><span class="tag tag-info">C2</span></td><td><code>ps-jinkoujue</code></td><td><span class="tag tag-ok">达标</span></td><td>苏国圣金口诀体系完整。但命例文件仅 8KB（5 条），相对规则数偏少，不影响使用。</td></tr>
+    <tr><td><span class="tag tag-info">D1</span></td><td><code>ps-shensha</code></td><td><span class="tag tag-ok">达标</span></td><td>304→282 条规则 + 40 命例。神煞体系覆盖《神煞》+《神煞14课》，盲派起法与书房派差异已标清。</td></tr>
+    <tr><td><span class="tag tag-info">D2</span></td><td><code>ps-gdc-jinkoujue</code></td><td><span class="tag tag-ok">达标</span></td><td>620 条规则（R001-R620），章节覆盖对照表完整。高德臣金口诀 15 章全覆盖。</td></tr>
+  </table>
+
+  <div class="good"><strong>总体评价：</strong>蒸馏质量整体超出预期。A3/A4 的 references/ 分文件做法、B3 的 OCR 校订诚信声明、C1 的逐章覆盖对照表，都是高质量蒸馏的标杆做法。各包均有诱饵测试通过记录，触发边界清晰。</div>
+</section>
+
+<!-- 三、遗漏清单 -->
+<section>
+  <div class="sec-tag">Gaps</div>
+  <h2><span class="num">叁</span>遗漏清单：需要补充蒸馏的书</h2>
+
+  <div class="warn">
+    <strong>重大遗漏：</strong>以下 2 本段派核心书在蒸馏计划中被错误归入「放弃」或「未提及」，但抽检确认<strong>内容可读、断法规则密集</strong>，必须补蒸。
+  </div>
+
+  <table>
+    <tr><th style="width:28%">书目</th><th style="width:10%">优先级</th><th style="width:14%">预估工作量</th><th style="width:48%">理由</th></tr>
+    <tr>
+      <td><strong>《盲派中级命理学》</strong><br>176页 · 纯文字可读</td>
+      <td><span class="tag tag-err">必须补蒸</span></td>
+      <td>1 张任务卡</td>
+      <td>计划表误列为「基础概念书」。实际内容：正局/反局判定、日支做功方向、体用论深化——是段派<strong>中级核心理论</strong>，不是入门概念。缺少它，A1 的体用做功链缺一环（正局/反局是定吉凶朝向的前提）。</td>
+    </tr>
+    <tr>
+      <td><strong>《段建业2010高级面授笔记》</strong><br>81K 字符 · doc 可读</td>
+      <td><span class="tag tag-err">必须补蒸</span></td>
+      <td>1 张任务卡</td>
+      <td>段建业面授班精华：象法/应期/伤官诀/财命/官命/学历——大量<strong>面授口传规则</strong>不见于已出版书。是段派实战断法的重要补充。</td>
+    </tr>
+    <tr>
+      <td>《命理瑰宝段建业修正版》<br>103K 字符 · doc 可读</td>
+      <td><span class="tag tag-warn">建议补蒸</span></td>
+      <td>1 张任务卡</td>
+      <td>与《命理珍宝》不是同一本书。含贼神与捕神/伤官当财/官杀制法/世应/识破骗子等<strong>独有章节</strong>。A2 只蒸了《命理珍宝》50 期。</td>
+    </tr>
+    <tr>
+      <td>《命理珍宝（香港版）》<br>105K 字符 · doc 可读</td>
+      <td><span class="tag tag-warn">建议比对</span></td>
+      <td>0.5 张任务卡</td>
+      <td>与内地版可能有大纲差异，香港版前言确认「曾著有《命理指要》《命理真诀导读》」。建议比对 A2 已蒸内容，补差量即可。</td>
+    </tr>
+    <tr>
+      <td>《盲派命理经典 易痴整理》<br>47K 字符 · doc 可读</td>
+      <td><span class="tag tag-warn">建议补蒸</span></td>
+      <td>0.5 张任务卡</td>
+      <td>含五言取用诀/湖铁口断命决/增补月潭赋等<strong>传统口诀汇编</strong>，可并入 B1 或 B2 池作口诀补充。</td>
+    </tr>
+    <tr>
+      <td>《盲派命理函授教材》一~四<br>4 本 · doc 可读</td>
+      <td><span class="tag tag-info">可选</span></td>
+      <td>1 张任务卡</td>
+      <td>段派函授教材，内容与初中级有重叠，但含独有练习题与案例分析。优先级低于前 5 项。</td>
+    </tr>
+    <tr>
+      <td>高德臣《预测求真》上下<br>344页 · 需抽检</td>
+      <td><span class="tag tag-info">可选</span></td>
+      <td>1~2 张任务卡</td>
+      <td>计划表原注「体量巨大，等核心蒸完再决定」。高德臣派目前只有神煞+金口诀 2 包，预测求真是其断法主干。如需补完高派可蒸。</td>
+    </tr>
+  </table>
+</section>
+
+<!-- 四、融合前需解决的 5 个问题 -->
+<section>
+  <div class="sec-tag">Issues</div>
+  <h2><span class="num">肆</span>融合前必须解决的 5 个问题</h2>
+
+  <div class="card">
+    <h3>问题 1 · 命名不统一（阻塞融合）</h3>
+    <p>当前技能名三种风格并存，融合安装时 <code>name</code> 与文件夹名不一致会导致加载失败：</p>
+    <table>
+      <tr><th>风格</th><th>代表包</th><th>问题</th></tr>
+      <tr><td><code>ps-xxx-yyy</code> 拼音前缀</td><td>A2/A3/A4/A5/B1/C1/C2/D1/D2</td><td>✅ 符合计划表规范</td></tr>
+      <tr><td><code>ps-xiazhongqi-*</code> 拼音前缀</td><td>B2 原始版（7 册）</td><td>✅ 符合但被新版覆盖</td></tr>
+      <tr><td>中文名（无 ps- 前缀）</td><td>盲派段氏包 12 册、夏仲奇包 7 册</td><td>❌ 违反计划表「命名统一」校验</td></tr>
+    </table>
+    <p><strong>决策建议：</strong>全部统一为 <code>ps-</code> 前缀拼音名（与已有 chenshi-mangpai 技能库风格一致），中文名只出现在 description 里。</p>
+  </div>
+
+  <div class="card">
+    <h3>问题 2 · A1/B2 多版本去重（阻塞融合）</h3>
+    <table>
+      <tr><th>任务</th><th>版本</th><th>处理建议</th></tr>
+      <tr><td rowspan="3">A1 段氏理象学</td><td>任务A1 v1（321KB zip）</td><td>❌ 淘汰：早期版，规则少</td></tr>
+      <tr><td>任务A1 v2（23.7MB zip）</td><td>❌ 淘汰：OCR 完整版但已被 v3 覆盖</td></tr>
+      <tr><td><strong>盲派段氏包（3 册）</strong></td><td>✅ <strong>选定</strong>：最全（主册+基础表+格局实战+命例 432KB+干支类象）</td></tr>
+      <tr><td rowspan="3">B2 夏仲奇</td><td>任务B2 ps-前缀 7 册</td><td>❌ 淘汰：初版，少 2 册</td></tr>
+      <tr><td>夏仲奇包 中文名 7 册</td><td>❌ 淘汰：与 v1 内容相同仅改名</td></tr>
+      <tr><td><strong>盲派段氏包 9 册</strong></td><td>✅ <strong>选定</strong>：最全（含断事补法+断健康疾病）</td></tr>
+    </table>
+    <p><strong>注意：</strong>盲派段氏包的「段氏理象学」3 册 + 「夏仲奇」9 册 = <strong>12 册合计为一个融合单元</strong>，不应拆回 A1/B2 两个任务。</p>
+  </div>
+
+  <div class="card">
+    <h3>问题 3 · C1 单文件过大（影响运行效率）</h3>
+    <p><code>ps-zhenbao</code> SKILL.md 达 1393 行/130KB，规则集独占 1148 行。每次触发都全量加载，效率低。建议按 A3/A4 模式拆分：</p>
+    <pre>ps-zhenbao/
+├── SKILL.md              # 保留：触发判定 + 断法步骤 + 核心判断（~200行）
+└── references/
+    ├── 规则-干支作用.md    # L4技法·干支作用（相连/生合/冲刑穿绝/墓库/空亡）
+    ├── 规则-串宫十二神.md  # L4技法·串宫压运
+    ├── 规则-断事各领域.md  # L8 婚姻/财运/官运/疾病/六亲/寿夭
+    ├── 命例.md             # 230 条结构化命例
+    └── 术语与误区.md       # 术语表 + 41 条失效场景</pre>
+  </div>
+
+  <div class="card">
+    <h3>问题 4 · A5 断链需修复</h3>
+    <p><code>ps-duan-xiangfa</code> SKILL.md 引用了 <code>候选/命例.md</code> 的推理链，但该文件不在技能包内。修复方案：将命例推理链从工作区移入 <code>references/命例.md</code>。</p>
+  </div>
+
+  <div class="card">
+    <h3>问题 5 · 跨包冲突未汇总</h3>
+    <p>各包内部已有冲突记录，但跨包/跨流派的冲突没有汇总清单。融合时须建立<strong>跨包冲突仲裁表</strong>，已知冲突：</p>
+    <table>
+      <tr><th>冲突项</th><th>涉及包</th><th>建议裁决</th></tr>
+      <tr><td>「所制之神入墓」吉凶：墓开则吉 vs 墓闭失色</td><td>盲派段氏包·格局实战</td><td>两说并列，按墓开/墓闭条件区分</td></tr>
+      <tr><td>「空库遇冲」：发 vs 入狱</td><td>C1 ps-zhenbao</td><td>两说并存，以实际反馈定性</td></tr>
+      <tr><td>用神体系：段派不取用神 vs B1 病药取用</td><td>A1/A2 vs B1</td><td>B1 属段派早期过渡体系，标注「段氏早期（命理真诀导读期）」</td></tr>
+      <tr><td>天乙贵人起法：「甲戊庚牛羊」vs「甲戊兼牛羊」</td><td>D1 ps-shensha</td><td>盲派起法为准（已按作者真主张裁决）</td></tr>
+      <tr><td>流年吉凶：B1 流年直接断吉凶 vs A2 流年只管应期</td><td>B1 vs A2</td><td>以 A2 为准（盲派主流口径），B1 标注流派差异</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 五、融合规划 -->
+<section>
+  <div class="sec-tag">Fusion Plan</div>
+  <h2><span class="num">伍</span>融合规划：五步走</h2>
+
+  <div class="card">
+    <h3>第 0 步 · 补蒸遗漏（前置，1~2 天）</h3>
+    <p>先补蒸 2 本必须补的书，再启动融合。否则融合后还要再拆一次。</p>
+    <table>
+      <tr><th>补蒸任务</th><th>产出技能名</th><th>源资料</th></tr>
+      <tr><td>补蒸 E1 · 盲派中级命理学</td><td><code>ps-duan-zhongji</code></td><td>《盲派中级命理学》176页（正局/反局/体用深化）</td></tr>
+      <tr><td>补蒸 E2 · 面授笔记</td><td><code>ps-duan-mianshou</code></td><td>《段建业2010高级面授笔记》81K字符</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>第 1 步 · 定版去重（半天）</h3>
+    <ol class="flow">
+      <li>选定各任务最终版（A1/B2 用盲派段氏包，其余用原任务包）</li>
+      <li>全部重命名为 <code>ps-</code> 前缀拼音（下表）</li>
+      <li>修复 A5 断链、拆分 C1 references</li>
+    </ol>
+
+    <h3>统一命名对照表（融合后最终名）</h3>
+    <table>
+      <tr><th style="width:22%">融合后技能名</th><th style="width:28%">来源任务</th><th style="width:50%">一句话用途</th></tr>
+      <tr><td><code>ps-zonglun</code></td><td>新建（总控）</td><td>盲派论命总入口：定体用→按领域路由→多派互证→统一报告</td></tr>
+      <tr><td colspan="3" style="background:#f0e8d5;font-weight:700">── 段派主干（主断法层）──</td></tr>
+      <tr><td><code>ps-tiwei-zuogong</code></td><td>A1 盲派段氏包·段氏理象学</td><td>体用做功定富贵层次（主断法）</td></tr>
+      <tr><td><code>ps-tiwei-jichu</code></td><td>A1 盲派段氏包·基础表</td><td>查表册：藏干/纳音/交运/类象</td></tr>
+      <tr><td><code>ps-tiwei-geju</code></td><td>A1 盲派段氏包·格局实战</td><td>格局名/阴阳包局/层数实证锚</td></tr>
+      <tr><td><code>ps-minglizhenbao</code></td><td>A2</td><td>元规则断法主干（前置调用）</td></tr>
+      <tr><td><code>ps-duan-shizhan</code></td><td>A3</td><td>断事实战：婚姻/疾病/车祸/应期/六亲</td></tr>
+      <tr><td><code>ps-duan-zhiye</code></td><td>A4</td><td>职业断法：军官/会计/老师/医生/销售</td></tr>
+      <tr><td><code>ps-duan-xiangfa</code></td><td>A5</td><td>象法体系：干支取象/组合象/过河拆桥</td></tr>
+      <tr><td><code>ps-duan-zhongji</code></td><td><strong>补蒸 E1</strong></td><td>中级理论：正局/反局/做功方向</td></tr>
+      <tr><td><code>ps-duan-mianshou</code></td><td><strong>补蒸 E2</strong></td><td>面授口传：伤官诀/财命/官命/学历</td></tr>
+      <tr><td colspan="3" style="background:#f0e8d5;font-weight:700">── 段派口诀与命例（互证层）──</td></tr>
+      <tr><td><code>ps-zhenjue-duanju</code></td><td>B1</td><td>命理真诀口诀断法（段派早期）</td></tr>
+      <tr><td><code>ps-anli-ku</code></td><td>B3</td><td>段派命例佐证库（263 例）</td></tr>
+      <tr><td colspan="3" style="background:#f0e8d5;font-weight:700">── 夏仲奇派（铁口断事层）──</td></tr>
+      <tr><td><code>ps-xiazhongqi-tiekou</code></td><td>B2·看命总纲</td><td>夏派总纲：定盘/宫位/星位/术语</td></tr>
+      <tr><td><code>ps-xiazhongqi-hunyin</code></td><td>B2·断婚姻</td><td>婚期/婚次/离婚/桃花</td></tr>
+      <tr><td><code>ps-xiazhongqi-liuqin</code></td><td>B2·断六亲</td><td>父母/子女/兄弟</td></tr>
+      <tr><td><code>ps-xiazhongqi-cailu</code></td><td>B2·断财禄事业</td><td>财运/行业/官运</td></tr>
+      <tr><td><code>ps-xiazhongqi-zaihai</code></td><td>B2·断官非灾祸</td><td>牢狱/伤灾/寿元</td></tr>
+      <tr><td><code>ps-xiazhongqi-jiankang</code></td><td>B2·断健康疾病</td><td>脏腑断病/断寿/死因取象</td></tr>
+      <tr><td><code>ps-xiazhongqi-quxiang</code></td><td>B2·取象直断</td><td>干支取象/单字释义</td></tr>
+      <tr><td><code>ps-xiazhongqi-bufa</code></td><td>B2·断事补法</td><td>性格/职业方向/继亲/应期到月</td></tr>
+      <tr><td><code>ps-xiazhongqi-bianjie</code></td><td>B2·断法边界</td><td>适用边界/与子平法差异</td></tr>
+      <tr><td colspan="3" style="background:#f0e8d5;font-weight:700">── 苏派（互证层）──</td></tr>
+      <tr><td><code>ps-zhenbao</code></td><td>C1</td><td>苏国圣真宝断法（串宫十二神/三垣）</td></tr>
+      <tr><td><code>ps-jinkoujue</code></td><td>C2</td><td>苏国圣金口诀直断</td></tr>
+      <tr><td colspan="3" style="background:#f0e8d5;font-weight:700">── 高派（佐证层）──</td></tr>
+      <tr><td><code>ps-shensha</code></td><td>D1</td><td>神煞体系佐证（高德臣派）</td></tr>
+      <tr><td><code>ps-gdc-jinkoujue</code></td><td>D2</td><td>高德臣金口诀直断</td></tr>
+    </table>
+    <p><strong>融合后技能总数：25 个</strong>（1 总控 + 9 段派 + 2 段派互证 + 8 夏派 + 2 苏派 + 2 高派 + 1 补蒸待定）</p>
+  </div>
+
+  <div class="card">
+    <h3>第 2 步 · 规则去重与冲突仲裁（1 天）</h3>
+    <ol class="flow">
+      <li><strong>同模型路径去重</strong>——同一模型路径下结论相同的规则合并，标「多源验证」</li>
+      <li><strong>跨包冲突汇总</strong>——各包冲突记录合并为一份《跨包冲突仲裁表》，按默认优先级裁决：段派体用做功 &gt; 苏派口诀 &gt; 高派神煞</li>
+      <li><strong>时代口径统一</strong>——女命旧断语、官贵本位断语，统一标注「旧语境，降维参考」</li>
+      <li><strong>OCR 口径对齐</strong>——A1/B3 均为 OCR 产物，形近字校正规则（巳/己/已、戌/戍）统一写入总控注意事项</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h3>第 3 步 · 组装总控 ps-zonglun（1 天）</h3>
+    <p>总控是唯一入口技能，按断事领域路由到子技能，产出统一报告。</p>
+    <pre>ps-zonglun（盘叔盲派·总控）
+│
+├── 第 0 层 · 定盘与前置
+│     ├── 报四柱 + 性别 → 先走 ps-minglizhenbao 五张前置卡
+│     │     （宾主卡 → 岁运卡 → 冲合刑害优先级 → 忌神处理卡 → 虚实卡）
+│     └── 时辰不准 → ps-xiazhongqi-tiekou 兄弟数倒推校时
+│
+├── 第 1 层 · 定层次（主断）
+│     └── ps-tiwei-zuogong + ps-tiwei-geju
+│           宾主→体用→做功→功量→定富贵层级
+│           + ps-duan-zhongji（正局/反局判吉凶朝向）
+│
+├── 第 2 层 · 按问题领域路由
+│     ├── 婚姻 → ps-duan-shizhan(婚姻) + ps-xiazhongqi-hunyin
+│     ├── 财运 → ps-duan-shizhan(财运) + ps-xiazhongqi-cailu
+│     ├── 职业 → ps-duan-zhiye + ps-xiazhongqi-quxiang + ps-duan-mianshou
+│     ├── 官运 → ps-duan-zhiye(军官) + ps-duan-mianshou(官命)
+│     ├── 疾病 → ps-duan-shizhan(疾病) + ps-xiazhongqi-jiankang
+│     ├── 灾祸 → ps-duan-shizhan(车祸) + ps-xiazhongqi-zaihai
+│     ├── 六亲 → ps-duan-shizhan(六亲) + ps-xiazhongqi-liuqin
+│     ├── 学历 → ps-duan-mianshou(学历) + ps-zhenjue-duanju(学业)
+│     ├── 性格 → ps-xiazhongqi-bufa + ps-zhenjue-duanju(性格)
+│     └── 应期 → ps-duan-shizhan(应期) + ps-minglizhenbao(岁运)
+│
+├── 第 3 层 · 互证与佐证
+│     ├── 口诀速断互证 → ps-zhenjue-duanju / ps-jinkoujue / ps-gdc-jinkoujue
+│     ├── 神煞佐证 → ps-shensha
+│     └── 命例支撑 → ps-anli-ku / ps-xiazhongqi-tiekou(断例)
+│
+├── 第 4 层 · 象法定实物
+│     └── ps-duan-xiangfa（干支取象→翻译为具体事物）
+│
+├── 第 5 层 · 边界与仲裁
+│     ├── 冲突 → 段派体用 &gt; 苏派口诀 &gt; 高派神煞
+│     ├── 不确定 → ps-xiazhongqi-bianjie / 各包「什么时候不该用」
+│     └── 高风险断语 → 概率化措辞 + 免责边界
+│
+└── 输出格式（统一报告）
+      【命局层次】功量层级 + 行业方向
+      【分域断语】每条带[规则编号/出处/置信度]
+      【命例佐证】匹配原型盘/相似盘编号
+      【应期推算】大限→大运→流年
+      【多派互证】口诀层/神煞层交叉验证结论
+      【存疑声明】低置信度 + 两说并存项</pre>
+  </div>
+
+  <div class="card">
+    <h3>第 4 步 · 全体系测试（半天）</h3>
+    <table>
+      <tr><th>测试类型</th><th>内容</th><th>通过标准</th></tr>
+      <tr><td>触发路由测试</td><td>20 组真实问句，验证总控正确路由到对应子技能</td><td>18/20 以上正确</td></tr>
+      <tr><td>端到端实战</td><td>扔 3 个有反馈的真实八字，走完整报告流程</td><td>报告结构完整，断语带出处</td></tr>
+      <tr><td>边界测试</td><td>非命理问题/子平问法/排盘请求/蒸馏请求</td><td>总控正确拒绝或让位</td></tr>
+      <tr><td>冲突仲裁测试</td><td>构造已知冲突场景（如墓开/墓闭）</td><td>按仲裁表输出两说并列</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>第 5 步 · 安装与交付（半天）</h3>
+    <ol class="flow">
+      <li>将全部 25 个技能文件夹复制到 TRAE 技能目录</li>
+      <li>验证每个技能 <code>name</code> 与文件夹名一致</li>
+      <li>与已有 <code>chenshi-mangpai</code> 技能库并存测试（不抢触发）</li>
+      <li>打包最终交付：<code>盘叔盲派_融合版_v1.zip</code></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 六、工作量估算 -->
+<section>
+  <div class="sec-tag">Effort</div>
+  <h2><span class="num">陆</span>工作量估算</h2>
+  <table>
+    <tr><th>阶段</th><th>内容</th><th>预估时间</th><th>阻塞依赖</th></tr>
+    <tr><td>第 0 步</td><td>补蒸《盲派中级命理学》+《高级面授笔记》</td><td>1~2 天</td><td>无，可立即启动</td></tr>
+    <tr><td>第 1 步</td><td>定版去重 + 统一命名 + 修复断链/拆分</td><td>半天</td><td>依赖第 0 步完成</td></tr>
+    <tr><td>第 2 步</td><td>规则去重 + 跨包冲突仲裁</td><td>1 天</td><td>依赖第 1 步完成</td></tr>
+    <tr><td>第 3 步</td><td>组装 ps-zonglun 总控</td><td>1 天</td><td>依赖第 2 步完成</td></tr>
+    <tr><td>第 4 步</td><td>全体系测试</td><td>半天</td><td>依赖第 3 步完成</td></tr>
+    <tr><td>第 5 步</td><td>安装交付</td><td>半天</td><td>依赖第 4 步通过</td></tr>
+    <tr><td colspan="2"><strong>总计</strong></td><td><strong>4~5 天</strong></td><td></td></tr>
+  </table>
+</section>
+
+<!-- 七、可选增强 -->
+<section>
+  <div class="sec-tag">Optional</div>
+  <h2><span class="num">柒</span>可选增强（非阻塞）</h2>
+  <table>
+    <tr><th>增强项</th><th>说明</th><th>优先级</th></tr>
+    <tr><td>补蒸《命理瑰宝》</td><td>段建业另一本核心书，含贼神/捕神/伤官当财等独有章节</td><td><span class="tag tag-warn">中</span></td></tr>
+    <tr><td>补蒸《盲派命理经典 易痴整理》</td><td>传统口诀汇编，并入 B1/B2 池</td><td><span class="tag tag-warn">中</span></td></tr>
+    <tr><td>补蒸高德臣《预测求真》</td><td>高派断法主干，344 页体量大</td><td><span class="tag tag-info">低</span></td></tr>
+    <tr><td>补蒸函授教材 4 本</td><td>段派函授案例与练习</td><td><span class="tag tag-info">低</span></td></tr>
+    <tr><td>与 chenshi-mangpai 合并</td><td>ps- 系列并入既有 chenshi-mangpai 技能库作增强</td><td><span class="tag tag-warn">中</span></td></tr>
+    <tr><td>命例索引数据库化</td><td>B3 的 267 例 + C1 的 230 例 + 各包命例统一建索引，支持按四柱反查</td><td><span class="tag tag-warn">中</span></td></tr>
+  </table>
+</section>
+
+<div class="footer">
+  盘叔盲派 · 蒸馏复核报告 + 融合规划<br>
+  复核范围：15 个交付包全部解压逐一核验 · 2026-10-02
+</div>
+
+</div>
+</body>
+</html>
